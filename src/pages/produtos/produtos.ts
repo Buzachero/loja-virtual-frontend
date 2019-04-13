@@ -30,6 +30,7 @@ export class ProdutosPage {
     let categoria_id = this.navParams.get('categoria_id');
     this.produtoService.findByCategoria(categoria_id)
       .subscribe(response => {
+        console.log(response);
         this.items = response['content'];
         this.loadImageUrls();
       },
@@ -46,6 +47,10 @@ export class ProdutosPage {
         error => {});
       
     }
+  }
+
+  showDetail() {
+    this.navCtrl.push('ProdutoDetailPage');
   }
 
 }
